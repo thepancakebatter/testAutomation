@@ -6,8 +6,8 @@ name: Node.js CI
 on:
   pull_request_review:
       types: [submitted]
-  #push:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
   #pull_request:
     #branches: [ main ]
     #types: [closed]
@@ -30,6 +30,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: apt-get update
+    - run: apt-get -y install graphicsmagick imagemagick ghostscript libde265-0 libde265-dev libde265-examples libheif-dev libheif-examples libheif1 tesseract-ocr tesseract-ocr-eng tesseract-ocr-tur
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
