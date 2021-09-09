@@ -16,7 +16,7 @@ jobs:
   build:
     #if: github.event.pull_request.merged == true
     #if: github.event.review.state == 'approved'
-    runs-on: ubuntu-latest
+    runs-on: node:14-buster
 
     strategy:
       matrix:
