@@ -4,15 +4,18 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-    types: [closed]
+  pull_request_review:
+      types: [submitted]
+  #push:
+    #branches: [ main ]
+  #pull_request:
+    #branches: [ main ]
+    #types: [closed]
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
+    #if: github.event.pull_request.merged == true
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
 
     strategy:
