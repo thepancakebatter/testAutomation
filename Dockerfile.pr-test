@@ -25,6 +25,6 @@ RUN npm ci install
 # Copy local code to the container image.
 COPY . ./
 
-RUN npm run test
+CMD ["npm" ,"run", "test"]
 
 
