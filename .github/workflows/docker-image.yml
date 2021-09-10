@@ -13,4 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile.pr-test --tag test-automation:$(date +%s)
+      run: docker build . --file Dockerfile.pr-test --tag base64.ai/pr-test
+      run: docker run base64.ai/pr-test
